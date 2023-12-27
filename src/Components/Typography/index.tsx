@@ -7,7 +7,7 @@ import {
   StyleProp,
   ColorValue,
 } from 'react-native';
-import {COLORS} from '@/Theme/Colors';
+import {COLORS} from '../../Theme/Colors';
 
 export type FontWeight =
   | '100' // Thin
