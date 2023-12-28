@@ -5,10 +5,12 @@ import {persistReducer} from 'redux-persist';
 import Startup from './Startup';
 import User from './User';
 import persistStore from 'redux-persist/es/persistStore';
+import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  stateReconciler: autoMergeLevel2,
 };
 
 const reducers = combineReducers({
@@ -16,7 +18,10 @@ const reducers = combineReducers({
   User,
 });
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer<ReturnType<typeof reducers>>(
+  persistConfig,
+  reducers,
+);
 
 export const store = configureStore({
   reducer: persistedReducer,

@@ -2,8 +2,6 @@ import React from 'react';
 import {Pressable, PressableProps, ViewStyle} from 'react-native';
 
 export type PressableOpacityProps = PressableProps & {
-  testingSuffix: string;
-  debounceWait?: number;
   activeOpacity?: number;
 };
 
@@ -13,7 +11,6 @@ export const PressableOpacity = ({
   style,
   onPress,
   activeOpacity = 0.4,
-  testingSuffix,
   ...props
 }: PressableOpacityProps) => {
   return (
@@ -25,9 +22,7 @@ export const PressableOpacity = ({
       hitSlop={5}
       disabled={disabled}
       onPress={onPress}
-      {...props}
-      testID={testingSuffix}
-      accessibilityLabel={testingSuffix}>
+      {...props}>
       {children}
     </Pressable>
   );

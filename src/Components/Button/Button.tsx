@@ -1,4 +1,4 @@
-import {COLORS} from '@/Theme/Colors';
+import {COLORS} from '../../Theme/Colors';
 import React from 'react';
 import {
   ColorValue,
@@ -40,7 +40,6 @@ export const Button = ({
   buttonStyle,
   buttonContainerStyle,
   textStyle,
-  testingSuffix,
   ...props
 }: ButtonProps) => {
   const buttonText = title || (typeof children === 'string' ? children : '');
@@ -82,15 +81,14 @@ export const Button = ({
       <PressableOpacity
         disabled={disabled || loading}
         style={buttonStyles as ViewStyle}
-        {...props}
-        testingSuffix={`${testingSuffix} Button`}>
+        {...props}>
         <View style={buttonContentStyles}>
           {icon && icon}
           {icon && children && <Spacer width={8} />}
           {buttonText && (
             <Typography
               size={14}
-              weight="600"
+              weight="700"
               style={textStyles}
               numberOfLines={1}>
               {buttonText as string}
@@ -111,10 +109,11 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   button: {
-    borderRadius: 24,
+    borderRadius: 16,
     justifyContent: 'center',
     minHeight: MIN_SIZE,
-    padding: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 16,
   },
   buttonContent: {
     flexDirection: 'row',

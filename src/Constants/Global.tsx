@@ -1,0 +1,4 @@
+export const GLOBALS = {
+  SCREEN_H_PADDING: 25,
+  SCREEN_V_PADDING: 16,
+};
