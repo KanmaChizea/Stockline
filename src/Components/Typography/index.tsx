@@ -76,6 +76,7 @@ export const Typography = ({
           fontSize: size,
           lineHeight: size * 1.2 + 4,
           fontFamily: getFontFamily(),
+          fontWeight: weight,
         },
         center && styles.center,
         uppercase && styles.uppercase,
