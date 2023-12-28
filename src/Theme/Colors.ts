@@ -5,6 +5,7 @@ export const COLORS = {
 
   //GREY
   GREY300: '#EDF2F7',
+  GREY400: '#E2E8F0',
   GREY600: '#A0AEC0',
   GREY800: '#2D3748',
 

@@ -1,25 +1,33 @@
+import {Pressable} from 'react-native';
 import React from 'react';
 import AuthScreen from '../../Components/Screen/AuthScreen';
-import {Pressable} from 'react-native';
+import {useRegisterViewmodel} from './viewmodel';
 import {InputField} from '../../Components/Input/InputField';
 import {Spacer} from '../../Components/Spacer';
-import {Button} from '../../Components/Button/Button';
-import {PressableOpacity} from '../../Components/Button/PressableOpacity';
-import {Typography} from '../../Components/Typography';
-import {COLORS} from '../../Theme/Colors';
 import {ICONS} from '../../Theme/Icons';
-import {useLoginViewmodel} from './viewmodel';
 import {AuthStackScreenProps} from '../../Navigators/types';
+import {Button} from '../../Components/Button/Button';
 
-export const Login = ({navigation}: AuthStackScreenProps<'Login'>) => {
-  const controller = useLoginViewmodel(navigation);
+export const Register = ({navigation}: AuthStackScreenProps<'Register'>) => {
+  const controller = useRegisterViewmodel(navigation);
   return (
     <AuthScreen
-      headerText="Hi there! "
-      headerWithWave
-      subtext="Welcome back, Sign in to your account"
-      onLinkTextPress={controller.goToSignup}
-      type="login">
+      headerText="Join Stockline"
+      subtext={
+        'Start investing for your favorite companies\nwith as little as '
+      }
+      emphasisedSubText="$1"
+      onLinkTextPress={() => {}}
+      type="signup">
+      <InputField
+        value={controller.usernameValue}
+        isFocused={controller.isUsernameFocused}
+        placeholder="Username"
+        onBlur={controller.onUsernameBlur}
+        onFocus={controller.onUsernameFocus}
+        onChangeText={controller.onUsernameChange}
+      />
+      <Spacer height={12} />
       <InputField
         value={controller.emailValue}
         isFocused={controller.isEmailFocused}
@@ -44,12 +52,7 @@ export const Login = ({navigation}: AuthStackScreenProps<'Login'>) => {
         }
       />
       <Spacer height={24} />
-      <Button title="Login" onPress={controller.login} />
-      <PressableOpacity>
-        <Typography center color={COLORS.PRIMARY_BASE} weight="600">
-          Forgot password?
-        </Typography>
-      </PressableOpacity>
+      <Button title="Continue" onPress={controller.gotoVerify} />
     </AuthScreen>
   );
 };

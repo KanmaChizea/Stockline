@@ -26,6 +26,7 @@ export type TypographyProps = TextProps & {
   uppercase?: boolean;
   capitalize?: boolean;
   color?: ColorValue;
+  center?: boolean;
   children?: string | Element | Element[] | React.ReactNode | React.ReactNode[];
   style?: StyleProp<TextStyle> | StyleProp<TextStyle>[];
   testingSuffix?: string;
@@ -40,6 +41,7 @@ export const Typography = ({
   color = COLORS.GREY800,
   style = {},
   testingSuffix,
+  center = false,
   ...restNativeProps
 }: TypographyProps) => {
   const getFontFamily = () => {
@@ -75,6 +77,7 @@ export const Typography = ({
           lineHeight: size * 1.2 + 4,
           fontFamily: getFontFamily(),
         },
+        center && styles.center,
         uppercase && styles.uppercase,
         capitalize && styles.capitalize,
         !!color && {color},
@@ -94,5 +97,8 @@ const styles = StyleSheet.create({
   },
   capitalize: {
     textTransform: 'capitalize',
+  },
+  center: {
+    textAlign: 'center',
   },
 });
