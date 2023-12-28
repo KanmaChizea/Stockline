@@ -14,6 +14,9 @@ export type AuthStackParamList = {
   Onboarding: undefined;
   Login: undefined;
   Register: undefined;
+  EnterPhone: undefined;
+  VerifyCode: undefined;
+  RegistrationComplete: undefined;
 };
 
 export type AuthStackScreenProps<T extends keyof AuthStackParamList> =

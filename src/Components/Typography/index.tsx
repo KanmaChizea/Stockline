@@ -57,7 +57,7 @@ export const Typography = ({
       case '500':
         return 'SF-Pro-Display-Medium';
       case '600':
-        return 'SF-Pro-Display-SemiBold';
+        return 'SF-Pro-Display-Semibold';
       case '700':
         return 'SF-Pro-Display-Bold';
       case '800':

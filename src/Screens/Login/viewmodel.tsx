@@ -30,7 +30,7 @@ export const useLoginViewmodel = (
   const goToSignup = () => navigation.navigate('Register');
 
   const login = () => {
-    if (emailValue && passwordValue) {
+    if (emailValue.trim() && passwordValue) {
       navigation.reset({routes: [{name: 'App'}]});
     } else {
       Alert.alert('Error', 'Please fill all required fields', [{text: 'OK'}], {

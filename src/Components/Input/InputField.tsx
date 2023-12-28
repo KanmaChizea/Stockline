@@ -8,12 +8,14 @@ type InputFieldProps = TextInputProps & {
   suffixComponent?: React.ReactNode;
   prefixComponent?: React.ReactNode;
   isFocused: boolean;
+  inputRef?: React.RefObject<TextInput>;
 };
 export const InputField = ({
   suffixComponent,
   prefixComponent,
   isFocused,
   value,
+  inputRef,
   ...restProps
 }: InputFieldProps) => {
   return (
@@ -22,10 +24,11 @@ export const InputField = ({
         layouts.rowHCenter,
         styles.inputBorder,
         isFocused && styles.activeBorder,
-        value ? styles.activeBorder : {},
+        value?.trim() ? styles.activeBorder : {},
       ]}>
       {prefixComponent && prefixComponent}
       <TextInput
+        ref={inputRef}
         style={[styles.text, layouts.fill]}
         placeholderTextColor={COLORS.GREY600}
         selectionColor={COLORS.PRIMARY_BASE}

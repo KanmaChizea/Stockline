@@ -7,7 +7,7 @@ import {Button} from '../../Components/Button/Button';
 import {PressableOpacity} from '../../Components/Button/PressableOpacity';
 import {Typography} from '../../Components/Typography';
 import {COLORS} from '../../Theme/Colors';
-import {ICONS} from '../../Theme/Icons';
+import {Icons} from '../../Theme/Icons';
 import {useLoginViewmodel} from './viewmodel';
 import {AuthStackScreenProps} from '../../Navigators/types';
 
@@ -27,6 +27,7 @@ export const Login = ({navigation}: AuthStackScreenProps<'Login'>) => {
         onBlur={controller.onEmailBlur}
         onFocus={controller.onEmailFocus}
         onChangeText={controller.onEmailChange}
+        keyboardType="email-address"
       />
       <Spacer height={12} />
       <InputField
@@ -39,7 +40,7 @@ export const Login = ({navigation}: AuthStackScreenProps<'Login'>) => {
         onChangeText={controller.onPasswordChange}
         suffixComponent={
           <Pressable onPress={controller.togglePasswordVisibility}>
-            <ICONS.EyeOff />
+            <Icons.EyeOff />
           </Pressable>
         }
       />

@@ -1,10 +1,10 @@
 import {Pressable} from 'react-native';
 import React from 'react';
 import AuthScreen from '../../Components/Screen/AuthScreen';
-import {useRegisterViewmodel} from './viewmodel';
+import {useRegisterViewmodel} from './ViewModels/register_viewmodel';
 import {InputField} from '../../Components/Input/InputField';
 import {Spacer} from '../../Components/Spacer';
-import {ICONS} from '../../Theme/Icons';
+import {Icons} from '../../Theme/Icons';
 import {AuthStackScreenProps} from '../../Navigators/types';
 import {Button} from '../../Components/Button/Button';
 
@@ -17,7 +17,7 @@ export const Register = ({navigation}: AuthStackScreenProps<'Register'>) => {
         'Start investing for your favorite companies\nwith as little as '
       }
       emphasisedSubText="$1"
-      onLinkTextPress={() => {}}
+      onLinkTextPress={controller.goToSignin}
       type="signup">
       <InputField
         value={controller.usernameValue}
@@ -35,6 +35,7 @@ export const Register = ({navigation}: AuthStackScreenProps<'Register'>) => {
         onBlur={controller.onEmailBlur}
         onFocus={controller.onEmailFocus}
         onChangeText={controller.onEmailChange}
+        keyboardType="email-address"
       />
       <Spacer height={12} />
       <InputField
@@ -47,7 +48,7 @@ export const Register = ({navigation}: AuthStackScreenProps<'Register'>) => {
         onChangeText={controller.onPasswordChange}
         suffixComponent={
           <Pressable onPress={controller.togglePasswordVisibility}>
-            <ICONS.EyeOff />
+            <Icons.EyeOff />
           </Pressable>
         }
       />

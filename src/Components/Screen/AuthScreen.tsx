@@ -5,7 +5,7 @@ import {IMAGES} from '../../Theme/Images';
 import {layouts} from '../../Theme/Styles/Layout';
 import {COLORS} from '../../Theme/Colors';
 import {Typography} from '../Typography';
-import {ICONS} from '../../Theme/Icons';
+import {Icons} from '../../Theme/Icons';
 import {GLOBALS} from '../../Constants/Global';
 import {Spacer} from '../Spacer';
 import {Button} from '../Button/Button';
@@ -53,7 +53,7 @@ const AuthScreen = ({
             <Typography size={20} weight="700">
               {headerText}
             </Typography>
-            {headerWithWave && <ICONS.Wave />}
+            {headerWithWave && <Icons.Wave />}
           </View>
         </View>
         <View style={layouts.fill}>
@@ -75,14 +75,14 @@ const AuthScreen = ({
           <Spacer height={16} />
           <View style={layouts.row}>
             <Button
-              icon={<ICONS.Google />}
+              icon={<Icons.Google />}
               style={layouts.fill}
               outline
               color={COLORS.GREY400}
             />
             <Spacer width={16} />
             <Button
-              icon={<ICONS.Apple />}
+              icon={<Icons.Apple />}
               style={layouts.fill}
               outline
               color={COLORS.GREY400}
